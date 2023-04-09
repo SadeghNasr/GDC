@@ -95,7 +95,7 @@ if __name__ == "__main__":
 
     logger.setup_logging(args)
 
-    log = logging.getLogger("gdc-client")
+    log = logging.getLogger("gdc_client")
     log_version_header(log)
 
     try:
@@ -116,4 +116,4 @@ if __name__ == "__main__":
     else:
         # will hit this branch even if downloads fail
         # and debug is turned off
-        log.debug("gdc-client exited normally")
+        log.debug("gdc_client exited normally")
