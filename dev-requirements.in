@@ -5,7 +5,7 @@ pytest
 pytest-cov
 requests-mock
 moto
-python-jose       # lower the requirements for cryptography, so python3.5 could work
+python-jose
 httmock
 
  # required by moto, limit version for jsonschema
