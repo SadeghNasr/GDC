@@ -6,7 +6,7 @@ function cleanup() {
     # get rid of the virtualenv
     echo "Cleaning up"
     deactivate
-    rm -rf "${VENV_NAME:?}/" build/ dist/ include/ local/ share/ gdc-client.spec
+    rm -rf "${VENV_NAME:?}/" build/ dist/ include/ local/ share/ gdc_client.spec
 }
 
 function compress() {
@@ -34,14 +34,14 @@ while getopts ":d" opt; do
 done
 
 VENV_NAME="venv"
-BINARY_NAME="gdc-client"
+BINARY_NAME="gdc_client"
 VENV_PATH="$VENV_NAME/bin/activate"
 
 case $(uname -s) in
     *NT*)
         # for use in git bash with all the nice unix utilities
         TARGET_ENVIRONMENT="Windows"
-        BINARY_NAME="gdc-client.exe"
+        BINARY_NAME="gdc_client.exe"
 
         #  this works in git bash
         alias python="winpty python"
@@ -96,7 +96,7 @@ pyinstaller \
     --additional-hooks-dir=. \
     --noconfirm \
     --onefile \
-    -c gdc-client
+    -c gdc_client
 
 echo "Testing produced binary..."
 ./dist/$BINARY_NAME --help
@@ -105,9 +105,9 @@ echo "Testing produced binary..."
 echo "Zipping binary..."
 cd dist
 
-PRE_ZIP_NAME="gdc-client_${VERSION}_${TARGET_ENVIRONMENT}_x64"
+PRE_ZIP_NAME="gdc_client_${VERSION}_${TARGET_ENVIRONMENT}_x64"
 if [ -n "${DATE}" ]; then
-    PRE_ZIP_NAME="gdc-client_${VERSION}_${DATE}_${TARGET_ENVIRONMENT}_x64"
+    PRE_ZIP_NAME="gdc_client_${VERSION}_${DATE}_${TARGET_ENVIRONMENT}_x64"
 fi
 
 ZIP_NAME="$PRE_ZIP_NAME.zip"
