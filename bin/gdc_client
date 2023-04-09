@@ -41,7 +41,7 @@ ERROR_MSG = " ".join(
 
 
 def log_version_header(log):
-    log.debug("gdc-client - {version}".format(version=version.__version__))
+    log.debug("gdc_client - {version}".format(version=version.__version__))
 
 
 if __name__ == "__main__":
